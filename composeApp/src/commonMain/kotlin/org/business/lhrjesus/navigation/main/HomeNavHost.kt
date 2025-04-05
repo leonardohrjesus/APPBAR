@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import org.business.lhrjesus.feature.filter.FilterScreen
 import org.business.lhrjesus.navigation.routes.HomeRoutes
 
 @Composable
@@ -18,8 +19,11 @@ fun HomeNavHost(
         startDestination = HomeRoutes.Home,
         modifier = modifier
     ) {
-        composable<HomeRoutes.About> {
-           TODO()
+        composable<HomeRoutes.Filter> {
+            FilterScreen(onBackPressed = {
+                navHostController.popBackStack()
+            }
+            )
         }
 
         composable<HomeRoutes.Home> {
@@ -29,10 +33,10 @@ fun HomeNavHost(
                         urlToImage = urlToImage,
                         description = description
                     ))
-                },
-                navigateToAboutScreen = {
-                    navHostController.navigate(HomeRoutes.About)
-                }*/
+                },*/
+                navigateToFilterScreen = {
+                    navHostController.navigate(HomeRoutes.Filter)
+                }
             )
         }
 

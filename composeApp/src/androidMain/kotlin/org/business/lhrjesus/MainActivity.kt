@@ -9,25 +9,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import org.business.lhrjesus.main.App
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.light(
-                android.graphics.Color.TRANSPARENT,
-                android.graphics.Color.TRANSPARENT
+                android.graphics.Color.MAGENTA,
+                android.graphics.Color.MAGENTA
             ),
             navigationBarStyle = SystemBarStyle.light(
-                android.graphics.Color.TRANSPARENT,
-                android.graphics.Color.TRANSPARENT,
+                android.graphics.Color.MAGENTA,
+                android.graphics.Color.MAGENTA,
             )
         )
 
         setContent {
             App()
-
-            //   ScaffoldExample()
 
         }
     }
@@ -37,7 +36,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppAndroidPreview() {
     App()
-    //ScaffoldExample()
 }
+
+
 
 

@@ -53,6 +53,9 @@ kotlin {
 
             implementation(libs.bundles.ktor)
 
+            implementation ("androidx.compose.material:material:1.7.8")
+
+
 
 
 
