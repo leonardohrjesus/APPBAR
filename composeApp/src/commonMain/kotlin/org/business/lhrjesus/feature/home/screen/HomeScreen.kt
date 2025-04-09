@@ -1,9 +1,12 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,6 +16,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.BottomAppBar
@@ -31,12 +35,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
+import coil3.compose.AsyncImage
 
 
 @Preview
@@ -44,7 +49,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun HomeScreen(navigateToFilterScreen: () -> Unit) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+      //  modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
 
         topBar = {
             CenterAlignedTopAppBar(
@@ -79,6 +84,7 @@ fun HomeScreen(navigateToFilterScreen: () -> Unit) {
                     BottomAppBar (
                         containerColor = MaterialTheme.colorScheme.primary,
                         actions = {
+
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceBetween
@@ -130,7 +136,6 @@ fun ScrollContent(innerPadding: PaddingValues) {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(range.count()) { index ->
-            //Text(text = "- List item number ${index + 1}")
             ElevatedCardExample(index)
         }
     }
@@ -139,22 +144,64 @@ fun ScrollContent(innerPadding: PaddingValues) {
 @Composable
 fun ElevatedCardExample(index: Int) {
     ElevatedCard(
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 6.dp
-        ),
-        modifier = Modifier.
-        fillMaxWidth().
-        padding(horizontal = 15.dp).
-        height(100.dp).
-        padding(vertical = 5.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 15.dp, vertical = 5.dp)
     ) {
-        Text(
-            text = "- List item number ${index + 1}",
-            modifier = Modifier
-                .padding(16.dp),
-            textAlign = TextAlign.Justify,
-        )
+        Column {
+            MyImage()
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            ) {
+                Row(
+                   verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.LocationOn,
+                        contentDescription = "Ícone de localização",
+                        tint = Color.Black,
+
+                    )
+                    Text(
+                        text = "R. Aspicuelta, 567 - Vila Madalena ${index + 1}",
+                        modifier = Modifier.padding(start = 8.dp),
+                        fontSize = 12.sp
+                    )
+                }
+
+                //Spacer(modifier = Modifier.height(12.dp))
+
+                Row(
+                    modifier = Modifier.padding(start = 10.dp)
+                ) {
+                    Text(
+                        text = "Bar 567 ${index + 1}",
+                        fontSize = 12.sp
+                    )
+                }
+            }
+        }
     }
+
+
+}
+
+
+@Composable
+fun MyImage() {
+
+    AsyncImage(
+        model = "https://lh3.googleusercontent.com/p/AF1QipOdntTx9QXDxQtZ5tXJVOC4lCEPT5LSsV24aaE2=s1360-w1360-h1020",
+        contentDescription = "imagem",
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(75.dp),
+        contentScale = ContentScale.FillBounds // ou ContentScale.FillWidth se quiser mostrar tudo
+    )
 }
 
 

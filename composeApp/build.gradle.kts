@@ -53,7 +53,9 @@ kotlin {
 
             implementation(libs.bundles.ktor)
 
-            implementation ("androidx.compose.material:material:1.7.8")
+            implementation(libs.landscapist.coil3)
+
+            implementation(libs.coil)
 
 
 
@@ -65,7 +67,7 @@ kotlin {
 
 android {
     namespace = "org.business.lhrjesus"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "org.business.lhrjesus"
