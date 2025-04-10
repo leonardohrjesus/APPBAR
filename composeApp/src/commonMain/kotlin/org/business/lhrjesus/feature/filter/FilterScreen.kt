@@ -36,7 +36,7 @@ fun FilterScreen(
             CenterAlignedTopAppBar(
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
-                    titleContentColor = Color.Black,
+                    titleContentColor = Color.White,
                 ),
                 title = {
                     Text(
