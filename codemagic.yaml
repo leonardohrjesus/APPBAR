@@ -9,10 +9,6 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Clean build folders
-        script: |
-          rm -rf ~/Library/Developer/Xcode/DerivedData
-          ./gradlew clean
       - name: Install dependencies
         script: |
           cd iosApp
@@ -30,7 +26,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - your-email@example.com
+          - your-leonardo.hrjesus@gmail.com
         notify:
           success: true
           failure: true
