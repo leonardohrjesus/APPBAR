@@ -6,9 +6,6 @@ workflows:
         XCODE_WORKSPACE: "iosApp.xcworkspace"
         XCODE_SCHEME: "iosApp"
         BUNDLE_ID: "com.example.kmpapp"
-        APP_STORE_CONNECT_KEY_ID: Encrypted(...) # opcional para deploy
-        APP_STORE_CONNECT_ISSUER_ID: Encrypted(...)
-        APP_STORE_CONNECT_PRIVATE_KEY: Encrypted(...)
       xcode: latest
       cocoapods: default
     scripts:
