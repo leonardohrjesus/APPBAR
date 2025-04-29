@@ -7,12 +7,7 @@ workflows:
         XCODE_SCHEME: "iosApp"
         BUNDLE_ID: "org.business.lhrjesus"
       xcode: latest
-      cocoapods: default
     scripts:
-      - name: Install dependencies
-        script: |
-          cd iosApp
-          pod install
       - name: Archive iOS app
         script: |
           cd iosApp
