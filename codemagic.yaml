@@ -3,30 +3,30 @@ workflows:
     name: Build iOS for KMP
     environment:
       vars:
-        XCODE_PROJECT: "iosApp.xcodeproj"
-        XCODE_SCHEME: "iosApp"
+        XCODE_PROJECT: "APPBAR.xcodeproj"
+        XCODE_SCHEME: "APPBAR"
         BUNDLE_ID: "org.business.lhrjesus"
       xcode: latest
     scripts:
       - name: Archive iOS app
         script: |
-          cd iosApp
+          cd APPBAR
           xcodebuild archive \
             -project $XCODE_PROJECT \
             -scheme $XCODE_SCHEME \
             -sdk iphoneos \
             -destination 'generic/platform=iOS' \
             -configuration Release \
-            -archivePath build/ios/iosApp.xcarchive
+            -archivePath build/ios/APPBAR.xcarchive
       - name: Export IPA
         script: |
-          cd iosApp
+          cd APPBAR
           xcodebuild -exportArchive \
-            -archivePath build/ios/iosApp.xcarchive \
+            -archivePath build/ios/APPBAR.xcarchive \
             -exportOptionsPlist ExportOptions.plist \
             -exportPath build/ios/ipa
     artifacts:
-      - iosApp/build/ios/ipa/*.ipa
+      - APPBAR/build/ios/ipa/*.ipa
     publishing:
       email:
         recipients:
