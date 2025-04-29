@@ -3,14 +3,14 @@ workflows:
     name: Build iOS for KMP
     environment:
       vars:
-        XCODE_PROJECT: "iosApp.xcodeproj"
+        XCODE_PROJECT: "APPBAR.xcodeproj"
         XCODE_SCHEME: "APPBAR"
         BUNDLE_ID: "org.business.lhrjesus"
       xcode: latest
     scripts:
       - name: Archive iOS app
         script: |
-          cd APPBAR
+          cd APPBAR\iosApp
           xcodebuild archive \
             -project $XCODE_PROJECT \
             -scheme $XCODE_SCHEME \
