@@ -15,6 +15,7 @@ workflows:
             -project $XCODE_PROJECT \
             -scheme $XCODE_SCHEME \
             -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
             -configuration Release \
             -archivePath build/ios/iosApp.xcarchive
       - name: Export IPA
