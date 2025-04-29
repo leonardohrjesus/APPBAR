@@ -10,6 +10,7 @@ workflows:
     scripts:
       - name: Archive iOS app
         script: |
+          cd APPBAR
           xcodebuild archive \
             -project $XCODE_PROJECT \
             -scheme $XCODE_SCHEME \
