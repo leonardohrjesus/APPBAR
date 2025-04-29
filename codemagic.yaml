@@ -3,7 +3,7 @@ workflows:
     name: Build iOS for KMP
     environment:
       vars:
-        XCODE_PROJECT: "APPBAR.xcodeproj"
+        XCODE_PROJECT: "iosApp.xcodeproj"
         XCODE_SCHEME: "APPBAR"
         BUNDLE_ID: "org.business.lhrjesus"
       xcode: latest
