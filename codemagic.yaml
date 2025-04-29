@@ -3,7 +3,7 @@ workflows:
     name: Build iOS for KMP
     environment:
       vars:
-        XCODE_WORKSPACE: "iosApp.xcworkspace"
+        XCODE_PROJECT: "iosApp.xcodeproj"
         XCODE_SCHEME: "iosApp"
         BUNDLE_ID: "org.business.lhrjesus"
       xcode: latest
@@ -12,7 +12,7 @@ workflows:
         script: |
           cd iosApp
           xcodebuild archive \
-            -workspace $XCODE_WORKSPACE \
+            -project $XCODE_PROJECT \
             -scheme $XCODE_SCHEME \
             -sdk iphoneos \
             -configuration Release \
