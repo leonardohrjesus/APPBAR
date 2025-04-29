@@ -4,7 +4,7 @@ workflows:
     environment:
       vars:
         XCODE_PROJECT: "iosApp.xcodeproj"
-        XCODE_SCHEME: "APPBAR"
+        XCODE_SCHEME: "iosApp"
         BUNDLE_ID: "org.business.lhrjesus"
       xcode: latest
     scripts:
