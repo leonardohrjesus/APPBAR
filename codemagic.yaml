@@ -5,28 +5,35 @@ workflows:
       vars:
         XCODE_PROJECT: "iosApp.xcodeproj"
         XCODE_SCHEME: "iosApp"
+        BUNDLE_ID: "org.business.lhrjesus"
       xcode: latest
-      cocoapods: default
-      signing:
-        xcode: automatic  # Automatic signing pelo Codemagic
     scripts:
-      - name: Clean build
+      - name: Archive iOS app
         script: |
-          xcodebuild clean -project $XCODE_PROJECT -scheme $XCODE_SCHEME
-      - name: Archive app
-        script: |
+          cd iosApp
           xcodebuild archive \
             -project $XCODE_PROJECT \
             -scheme $XCODE_SCHEME \
             -sdk iphoneos \
-            -configuration Release \
             -destination 'generic/platform=iOS' \
-            -archivePath build/ios/iosApp.xcarchive
-      - name: Export .ipa
+            -configuration Release \
+            -archivePath build/ios/APPBAR.xcarchive
+      - name: Export IPA
         script: |
+          cd APPBAR
           xcodebuild -exportArchive \
-            -archivePath build/ios/iosApp.xcarchive \
+          
+          
+          
+            -archivePath build/ios/APPBAR.xcarchive \
             -exportOptionsPlist ExportOptions.plist \
             -exportPath build/ios/ipa
     artifacts:
-      - build/ios/ipa/*.ipa
+      - APPBAR/build/ios/ipa/*.ipa
+    publishing:
+      email:
+        recipients:
+          - your-leonardo.hrjesus@gmail.com
+        notify:
+          success: true
+          failure: true
