@@ -14,4 +14,7 @@ sealed interface HomeRoutes {
 
     @Serializable
     data object Filter : HomeRoutes
+
+    @Serializable
+    data object Maps : HomeRoutes
 }

@@ -57,8 +57,7 @@ kotlin {
 
             implementation(libs.coil)
 
-
-
+            implementation(libs.maps.compose.v660)
 
 
         }
@@ -75,6 +74,8 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
+        manifestPlaceholders["MAPS_API_KEY"] = project.findProperty("MAPS_API_KEY") ?: ""
+
     }
     packaging {
         resources {
@@ -93,10 +94,10 @@ android {
 }
 
 dependencies {
+  implementation(libs.maps.compose.v660)
   implementation(libs.androidx.material3.android)
   implementation(libs.material3.android)
   debugImplementation(compose.uiTooling)
-
 
 
 }
