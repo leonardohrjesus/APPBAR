@@ -23,6 +23,8 @@ ktor = "3.0.1"
 landscapistCoil3 = "2.4.0"
 material3Version = "1.7.0"
 versioncoil= "3.1.0"
+mediaPlayerKMP = "2.0.9"
+
 
 
 
@@ -45,6 +47,8 @@ material3-android = { group = "androidx.compose.material3", name = "material3-an
 accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanistVersion" }
 
 maps-compose-v660 = { module = "com.google.maps.android:maps-compose", version.ref = "mapsComposeVersion" }
+alert-kmp = { module = "io.github.khubaibkhan4:mediaplayer-kmp", version.ref = "mediaPlayerKMP" }
+
 
 
 

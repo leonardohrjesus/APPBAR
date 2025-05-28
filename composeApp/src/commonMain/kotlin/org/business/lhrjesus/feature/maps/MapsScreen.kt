@@ -101,7 +101,7 @@ fun  MapsScreen(
     )
 
     {
-        GoogleMapScreen()
+        GoogleMapScreen(nome = "Bar Vila 567", endereco = "Rua Aspicuelta , 567")
         }
 
 }

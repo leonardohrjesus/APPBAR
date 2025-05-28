@@ -1,5 +1,7 @@
 package org.business.lhrjesus.feature.filter
 
+import VideoPlayer
+import VideoPlayerScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -12,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -126,13 +129,34 @@ fun FilterScreen(
         Box(contentAlignment = Alignment.Center,
             modifier = Modifier.padding(50.dp)
         ){
-            EventDetailScreen(navigateToMapsScreen)
+
+           EventDetailScreen(navigateToMapsScreen)
             //AboutComponent("Leonardo", "MONSTRO",onBackPressed)
+
         }
     }
 
 }
 
+
+@Composable
+fun VideoScreen() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth() // Preenche a largura
+            .height(200.dp) // Define a altura do Box
+            .padding(16.dp), // Adiciona padding ao redor do Box
+        contentAlignment = Alignment.Center // Centraliza o conteúdo dentro do Box
+    ) {
+
+        VideoPlayer(
+            modifier = Modifier,
+            url = "https://player.odycdn.com/v6/streams/5d49639649cd048580090c8d53c86121649295e6/470637.mp4",
+            autoPlay = false,
+            showControls = true,
+        )
+    }
+}
 @Composable
 private fun AboutComponent(
     title: String,
@@ -255,22 +279,28 @@ fun EventDetailScreen(navigateToMapsScreen: () -> Unit) {
             ) {
                 InstagramIcon()
             }
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                VideoScreen()
+            }
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Button(
+                    onClick = { /* Lógica de compra */ },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                ) {
+                    Text(text = "Comprar Ingresso")
+                }
+            }
 
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
 
-        // Ticket Purchase Button
-        Button(
-            onClick = { /* Lógica de compra */ },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-        ) {
-            Text(text = "Comprar Ingresso")
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(50.dp))
 
     }
 }

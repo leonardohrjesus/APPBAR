@@ -59,6 +59,9 @@ kotlin {
 
             implementation(libs.maps.compose.v660)
 
+            implementation(libs.alert.kmp)
+
+
 
         }
     }

@@ -48,9 +48,11 @@ fun AppAndroidPreview() {
 }
 
 
+
+
 @SuppressLint("UnrememberedMutableState")
 @Composable
-actual fun GoogleMapScreen(modifier: Modifier) {
+actual fun GoogleMapScreen(modifier: Modifier, nome: String, endereco: String) {
     val saoPaulo = LatLng(-23.55800716129896, -46.690647939636925)
     val cameraPositionState = rememberCameraPositionState {
         position = com.google.android.gms.maps.model.CameraPosition.fromLatLngZoom(saoPaulo, 12f)
@@ -62,8 +64,9 @@ actual fun GoogleMapScreen(modifier: Modifier) {
     ) {
         Marker(
             state = MarkerState(position = saoPaulo),
-            title = "Rua Aspicuelta , 567 ",
-            snippet = "Bar Vila 567!"
+            title = endereco,
+            snippet = nome
+
         )
     }
 }

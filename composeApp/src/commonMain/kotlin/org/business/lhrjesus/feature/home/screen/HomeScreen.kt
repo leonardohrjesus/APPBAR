@@ -1,5 +1,6 @@
 package org.business.lhrjesus.feature.home.screen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -134,13 +135,13 @@ fun HomeScreen(
                 // Handle the clicked chip here
                 println("Clicked chip: $clickedChip")
             }
-            ScrollContent(PaddingValues(0.dp))
+            ScrollContent(PaddingValues(0.dp), navigateToFilterScreen)
         }
     }
 }
 
 @Composable
-fun ScrollContent(innerPadding: PaddingValues) {
+fun ScrollContent(innerPadding: PaddingValues, navigateToFilterScreen: () -> Unit) {
     val range = 1..100
     LazyColumn(
         modifier = Modifier
@@ -149,14 +150,14 @@ fun ScrollContent(innerPadding: PaddingValues) {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(range.count()) { index ->
-            ElevatedCardExample(index)
+            ElevatedCard(index, navigateToFilterScreen)
         }
 
     }
 }
 
 @Composable
-fun ElevatedCardExample(index: Int) {
+fun ElevatedCard(index: Int, navigateToFilterScreen: () -> Unit) {
     ElevatedCard(
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         modifier = Modifier
@@ -174,6 +175,9 @@ fun ElevatedCardExample(index: Int) {
 
                 Row(
                     modifier = Modifier.padding(start = 10.dp)
+                        .clickable {
+                        navigateToFilterScreen.invoke()
+                    }
                 ) {
                     Text(
                         text = "Bar 567 ${index + 1}",
