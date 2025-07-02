@@ -26,9 +26,6 @@ versioncoil= "3.1.0"
 mediaPlayerKMP = "2.0.9"
 
 
-
-
-
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }

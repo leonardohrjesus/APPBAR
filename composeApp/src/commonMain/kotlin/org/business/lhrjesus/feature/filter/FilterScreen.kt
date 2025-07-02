@@ -151,7 +151,7 @@ fun VideoScreen() {
 
         VideoPlayer(
             modifier = Modifier,
-            url = "https://player.odycdn.com/v6/streams/5d49639649cd048580090c8d53c86121649295e6/470637.mp4",
+            url = "https://www.youtube.com/watch?v=n5wxZ_OBUXk&list=RDn5wxZ_OBUXk&start_radio=1",
             autoPlay = false,
             showControls = true,
         )
