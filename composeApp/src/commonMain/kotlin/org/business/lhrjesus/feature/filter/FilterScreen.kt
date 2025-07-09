@@ -48,6 +48,7 @@ import androidx.compose.ui.unit.sp
 import appbar.composeapp.generated.resources.Res
 import appbar.composeapp.generated.resources.icon_instagram
 import coil3.compose.AsyncImage
+import org.business.lhrjesus.openInstagram
 import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -311,7 +312,7 @@ fun InstagramIcon() {
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .clickable {
-                // Ação ao clicar no ícone do Instagram
+                openInstagram()
             }
     ) {
         Image(
