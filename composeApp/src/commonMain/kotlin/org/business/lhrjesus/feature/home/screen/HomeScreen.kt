@@ -46,6 +46,8 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -65,6 +67,8 @@ import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import org.business.lhrjesus.feature.home.viewmodel.BarViewModel
+import org.business.lhrjesus.feature.home.viewmodel.HomeViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -184,6 +188,7 @@ fun ElevatedCard(index: Int, navigateToFilterScreen: () -> Unit) {
             .fillMaxWidth()
             .padding(horizontal = 15.dp, vertical = 5.dp)
     ) {
+        BarListScreen()
         Column {
             MyImage()
 
@@ -434,4 +439,17 @@ fun CityComboBox(
             }
         }
     }
+}
+
+@Composable
+fun BarListScreen(viewModel: BarViewModel = remember { BarViewModel() }) {
+    val bares by viewModel.bares.collectAsState()
+
+    LaunchedEffect(Unit) {
+        viewModel.loadBares()
+    }
+
+
+
+
 }

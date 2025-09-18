@@ -61,7 +61,15 @@ kotlin {
 
             implementation(libs.alert.kmp)
 
-            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0") // ou versão mais recente
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.kotlinx.datetime)
+
+
+
 
 
 
